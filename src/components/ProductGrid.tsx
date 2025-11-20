@@ -168,7 +168,7 @@ export default function ProductGrid({ category, searchQuery }: ProductGridProps)
           <p className="text-gray-500 text-lg">No products available in this category yet.</p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-2">
           {filteredProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}

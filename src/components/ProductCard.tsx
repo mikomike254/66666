@@ -49,7 +49,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 
   return (
     <div
-      className="relative bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-shadow duration-300"
+      className="relative bg-[#ff3b30] rounded-[16px] overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >
@@ -64,10 +64,10 @@ export default function ProductCard({ product }: ProductCardProps) {
 
         <button
           onClick={handleWishlist}
-          className="absolute top-3 right-3 p-2 bg-white rounded-full shadow-lg hover:scale-110 transition-transform"
+          className="absolute top-2 right-2 p-1.5 bg-white rounded-full shadow-lg hover:scale-110 transition-transform"
         >
           <Heart
-            className={`w-5 h-5 ${
+            className={`w-4 h-4 ${
               isInWishlist(product.id)
                 ? 'fill-red-500 text-red-500'
                 : 'text-gray-700'
@@ -76,50 +76,50 @@ export default function ProductCard({ product }: ProductCardProps) {
         </button>
 
         {isHovering && (
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent animate-fade-in flex flex-col justify-end p-4">
-            <div className="text-white space-y-2">
-              <h3 className="font-semibold text-lg line-clamp-2">
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent animate-fade-in flex flex-col justify-end p-2">
+            <div className="text-white space-y-1">
+              <h3 className="font-bold text-sm line-clamp-2">
                 {product.name}
               </h3>
-              <div className="flex items-center gap-2">
-                <span className="text-lg line-through text-gray-400">KSh {originalPrice.toLocaleString()}</span>
-                <span className="text-xl font-bold">KSh {discountedPrice.toLocaleString()}</span>
-                <span className="text-sm bg-red-500 text-white px-2 py-1 rounded">50% OFF</span>
+              <div className="flex items-center gap-1">
+                <span className="text-xs line-through text-gray-400">KSh {originalPrice.toLocaleString()}</span>
+                <span className="text-sm font-bold">KSh {discountedPrice.toLocaleString()}</span>
+                <span className="text-xs bg-red-500 text-white px-1.5 py-0.5 rounded">50% OFF</span>
               </div>
             </div>
           </div>
         )}
       </div>
 
-      <div className="p-4 space-y-3">
+      <div className="p-2 space-y-1.5">
         <div>
-          <h3 className="font-medium text-lg text-gray-900 line-clamp-2">
+          <h3 className="font-bold text-sm text-white line-clamp-2">
             {product.name}
           </h3>
           {product.color && (
-            <p className="text-xs text-gray-500 uppercase tracking-wide mt-1">
+            <p className="text-xs text-white/80 uppercase tracking-wide mt-0.5">
               {product.color}
             </p>
           )}
         </div>
 
-        <div className="flex items-center gap-2">
-          <span className="text-lg line-through text-gray-400">KSh {originalPrice.toLocaleString()}</span>
-          <span className="text-xl font-bold text-red-600">KSh {discountedPrice.toLocaleString()}</span>
+        <div className="flex items-center gap-1">
+          <span className="text-xs line-through text-white/60">KSh {originalPrice.toLocaleString()}</span>
+          <span className="text-sm font-bold text-white">KSh {discountedPrice.toLocaleString()}</span>
         </div>
-        <div className="inline-block bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">50% OFF</div>
+        <div className="inline-block bg-black text-white text-xs font-bold px-1.5 py-0.5 rounded">50% OFF</div>
 
-        <div className="space-y-2">
-          <p className="text-sm font-semibold text-gray-900">Select Size:</p>
-          <div className="flex gap-2 flex-wrap">
+        <div className="space-y-1">
+          <p className="text-xs font-semibold text-white">Select Size:</p>
+          <div className="flex gap-1 flex-wrap">
             {availableSizes.map((size) => (
               <button
                 key={size}
                 onClick={() => setSelectedSize(size)}
-                className={`px-4 py-2 text-sm font-medium border-2 rounded-lg transition-all ${
+                className={`px-2 py-1 text-xs font-medium border rounded transition-all ${
                   selectedSize === size
-                    ? 'border-black bg-black text-white'
-                    : 'border-gray-300 hover:border-gray-500'
+                    ? 'border-white bg-white text-black'
+                    : 'border-white/40 text-white hover:border-white'
                 }`}
               >
                 {size}
@@ -128,17 +128,17 @@ export default function ProductCard({ product }: ProductCardProps) {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-3 mt-4">
+        <div className="grid grid-cols-2 gap-1.5 mt-2">
           <button
             onClick={handleAddToCart}
-            className="py-3 bg-black text-white font-medium hover:bg-gray-800 transition-colors rounded-full flex items-center justify-center gap-2"
+            className="py-1.5 bg-black text-white text-xs font-medium hover:bg-gray-800 transition-colors rounded-full flex items-center justify-center gap-1"
           >
-            <ShoppingBag className="w-4 h-4" />
+            <ShoppingBag className="w-3 h-3" />
             Add to Cart
           </button>
           <button
             onClick={handleOrder}
-            className="py-3 bg-green-500 text-white font-medium hover:bg-green-600 transition-colors rounded-full"
+            className="py-1.5 bg-green-500 text-white text-xs font-medium hover:bg-green-600 transition-colors rounded-full"
           >
             WhatsApp
           </button>

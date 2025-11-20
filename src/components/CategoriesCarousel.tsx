@@ -94,7 +94,7 @@ export default function CategoriesCarousel({ onCategoryClick }: CategoriesCarous
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseLeave}
-        className="flex gap-6 overflow-x-auto scrollbar-hide px-4 sm:px-6 lg:px-8"
+        className="flex gap-3 overflow-x-auto scrollbar-hide px-4 sm:px-6 lg:px-8"
         style={{
           scrollbarWidth: 'none',
           msOverflowStyle: 'none',
@@ -104,26 +104,26 @@ export default function CategoriesCarousel({ onCategoryClick }: CategoriesCarous
         {[...categories, ...categories].map((cat, index) => (
           <div
             key={index}
-            className="flex-shrink-0 w-80 group relative rounded-2xl overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105"
+            className="flex-shrink-0 w-56 group relative rounded-[16px] overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105 bg-[#ff3b30]"
             style={{ userSelect: 'none' }}
           >
             <div
-              className="h-96 bg-cover bg-center"
+              className="h-64 bg-cover bg-center"
               style={{ backgroundImage: `url(${cat.image})` }}
             >
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
-              <div className="absolute inset-0 flex flex-col justify-end p-6 text-white">
-                <h3 className="text-3xl font-bold mb-4">{cat.title}</h3>
-                <div className="space-y-1 mb-4">
-                  {cat.subcategories.map((sub, idx) => (
-                    <p key={idx} className="text-sm text-gray-200">
+              <div className="absolute inset-0 flex flex-col justify-end p-3 text-white">
+                <h3 className="text-xl font-bold mb-2">{cat.title}</h3>
+                <div className="space-y-0.5 mb-2">
+                  {cat.subcategories.slice(0, 4).map((sub, idx) => (
+                    <p key={idx} className="text-xs text-gray-200">
                       • {sub}
                     </p>
                   ))}
                 </div>
                 <button
                   onClick={() => onCategoryClick(cat.category)}
-                  className="w-full py-3 bg-white text-black font-medium rounded-full hover:bg-gray-100 transition-colors"
+                  className="w-full py-2 bg-white text-black text-xs font-medium rounded-full hover:bg-gray-100 transition-colors"
                 >
                   Explore {cat.title}
                 </button>
