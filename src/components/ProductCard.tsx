@@ -49,7 +49,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 
   return (
     <div
-      className="relative bg-[#ff3b30] rounded-[16px] overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+      className="relative bg-red-500/30 backdrop-blur-sm rounded-[16px] overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 scale-[0.8]"
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >
@@ -91,7 +91,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         )}
       </div>
 
-      <div className="p-2 space-y-1.5">
+      <div className="p-2 space-y-1.5 scale-[1.25]">
         <div>
           <h3 className="font-bold text-sm text-white line-clamp-2">
             {product.name}
